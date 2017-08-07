@@ -2,6 +2,16 @@
 <input type="text" class="form-control"  [(ngModel)]="serverName">
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()" >Add Server</button>
 <p>{{serverCreation}}</p>
+<br/>
+<label>User Name</label>
+<input type="text" class="form-control" [(ngModel)]="userName" (input)="onDataChanged($event)">
+<p>{{userName}}</p>
+<button class="btn btn-primary" [disabled]="isResetUserName" (click)="onResetUserName()">Reset username</button>
+
+<!--another simple sollution , use [disabled]="userName == ''" , so we don't need (input) property binding in input form-->
+<!--<input type="text" class="form-control" [(ngModel)]="userName">-->
+<!--<button class="btn btn-primary" [disabled]="userName == ''" (click)="onResetUserName()">Reset username</button>-->
+
 <app-server></app-server>
 <app-server></app-server>
 
