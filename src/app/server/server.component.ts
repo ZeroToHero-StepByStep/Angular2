@@ -6,7 +6,12 @@ import{Component} from '@angular/core' ;
 //so we can use it outside
 export class ServerComponent
  {
+    serverId = 10 ;
+    serverStatus = 'offline' ;
 
+    getServerStatus(){
+      return this.serverStatus ;
+    }
  }
 
 
