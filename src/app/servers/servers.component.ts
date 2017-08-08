@@ -13,6 +13,7 @@ export class ServersComponent implements OnInit {
   serverCreation = 'No server was created' ;
   serverName = 'TestServerInitially' ;
   isResetUserName = true ;
+  isServerCreated = false ;
   userName = '' ;
   constructor() {
     setTimeout(() =>{
@@ -24,10 +25,26 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
+    if ( this.serverName !== '')
+    {
+      this.isServerCreated = true ;
+    }
+    else
+    {
+      this.isServerCreated = false ;
+    }
+
     this.serverCreation = 'Server was created and name is ' + this.serverName ;
   }
 
-  onDataChanged( event:any)
+  onServerNameChanged(event:any) {
+    if (this.serverName === '')
+    {
+      this.isServerCreated = false ;
+    }
+  }
+
+  onUserNameChanged( event:any)
   {
     var stringValue = (<HTMLInputElement>event.target).value ;
     if (stringValue !== '')
