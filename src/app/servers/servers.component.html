@@ -7,17 +7,19 @@
 <ng-template #noserver>
   <p>No server was created</p>
 </ng-template>
-
+<button type="text" class="btn btn-primary" (click)="onClickDisplayButton()">{{displayOrHideDetailsButton}}</button>
+<app-click *ngFor="let click of clicks"></app-click>
+<p *ngIf="isDisplayDetails">Secrete Password = tuna</p>
 <br/>
 <label>User Name</label>
 <input type="text" class="form-control" [(ngModel)]="userName" (input)="onUserNameChanged($event)">
 <p>{{userName}}</p>
 <button class="btn btn-primary" [disabled]="isResetUserName" (click)="onResetUserName()">Reset username</button>
+<app-server *ngFor="let server of servers">
+</app-server>
 
-<!--another simple sollution , use [disabled]="userName == ''" , so we don't need (input) property binding in input form-->
-<!--<input type="text" class="form-control" [(ngModel)]="userName">-->
-<!--<button class="btn btn-primary" [disabled]="userName == ''" (click)="onResetUserName()">Reset username</button>-->
 
-<app-server></app-server>
-<app-server></app-server>
+
+
+
 
