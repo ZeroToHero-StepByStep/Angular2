@@ -7,9 +7,13 @@
 <ng-template #noserver>
   <p>No server was created</p>
 </ng-template>
-<button type="text" class="btn btn-primary" (click)="onClickDisplayButton()">{{displayOrHideDetailsButton}}</button>
-<app-click *ngFor="let click of clicks"></app-click>
-<p *ngIf="isDisplayDetails">Secrete Password = tuna</p>
+<button type="text" class="btn btn-primary" (click)="onToggleDetails()">{{displayOrHideDetailsButton}}</button>
+<p *ngIf="showDetails">Secrete Password = tuna</p>
+<div *ngFor=" let logItem of log"
+     [ngStyle]="{backgroundColor:logItem >= 5?'blue':'transparent'}"
+     [ngClass] = "{'white-text': logItem>= 5}">
+  {{logItem}}
+</div>
 <br/>
 <label>User Name</label>
 <input type="text" class="form-control" [(ngModel)]="userName" (input)="onUserNameChanged($event)">

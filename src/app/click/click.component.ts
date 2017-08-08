@@ -7,7 +7,7 @@ import DateTimeFormat = Intl.DateTimeFormat;
   styleUrls: ['./click.component.css'],
   styles: [`
     .after5thColor 
-    {
+    {  
       color : white; 
     }
   `]

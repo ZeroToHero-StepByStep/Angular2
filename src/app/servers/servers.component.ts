@@ -18,7 +18,9 @@ export class ServersComponent implements OnInit {
   userName = '' ;
   displayOrHideDetailsButton = 'Hide Details' ;
   servers = ['TestServer' , 'TestServer 2'] ;
+  showDetails = false ;
   clicks = [] ;
+  log = [] ;
   constructor() {
     setTimeout(() =>{
       this.allowNewServer = true ;
@@ -26,6 +28,21 @@ export class ServersComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onToggleDetails()
+  {
+    this.showDetails = !this.showDetails ;
+    if (this.showDetails === false)
+    {
+      this.displayOrHideDetailsButton = 'Display Details' ;
+    }
+    else
+    {
+      this.displayOrHideDetailsButton = 'Hide Details' ;
+    }
+    this.log.push(this.log.length + 1 ) ;
+
   }
 
   onCreateServer() {
@@ -38,7 +55,6 @@ export class ServersComponent implements OnInit {
       this.isServerCreated = false ;
     }
     this.servers.push(this.serverName) ;
-
     this.serverCreation = 'Server was created and name is ' + this.serverName ;
   }
 
@@ -67,14 +83,6 @@ export class ServersComponent implements OnInit {
   {
     this.isDisplayDetails = !this.isDisplayDetails ;
     this.clicks.push(Date.now()) ;
-    if (this.displayOrHideDetailsButton == 'Hide Details')
-    {
-      this.displayOrHideDetailsButton = 'Display Details' ;
-    }
-    else
-    {
-      this.displayOrHideDetailsButton = 'Hide Details' ;
-    }
   }
 
   onResetUserName()
